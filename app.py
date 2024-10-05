@@ -1,41 +1,47 @@
 import streamlit as st
-import random
-import time
+import pandas as pd
 
-def response_generator():
-    response = random.choice(
-        [
-            "Hello there! How can I assist you today?",
-            "Hi, human! Is there anything I can help you with?",
-            "Do you need help?",
-        ]
-    )
-    for word in response.split():
-        yield word + " "
-        time.sleep(0.05)
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+import os
+
+# DATA_JSON_FILE = 'email-text-data.json'
+# data = pd.read_json(DATA_JSON_FILE)
+
+
+# vectorizer = CountVectorizer(stop_words='english')
+
+# all_features = vectorizer.fit_transform(data.MESSAGE)
+
+# X_train, X_test, y_train, y_test = train_test_split(all_features, data.CATEGORY, 
+#                                                    test_size=0.3, random_state=88)
+# classifier = MultinomialNB()        
+# classifier.fit(X_train, y_train)
+
+
+def email_prediction(msg):
+    # matrix = vectorizer.transform([msg])
+
+    return msg #classifier.predict(matrix)[0]
+
+
+def main():
+    
+    st.title("SPAM e-MAIL CLASSIFICATION")
+    st.subheader('Built with Python and Streamlit')
+
+    msg = st.text_input("Enter Your Message Below... eg. Let's catch up tonight, You have a meeting scheduled for tomorrow, To join our premium memebership please enter code ALLYSON30 etc.")
+    
+    if st.button('Predict'):
         
-st.title("SPAM DETECTOR")
+        result = email_prediction(msg)
 
-# Initialize chat history
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+        if result:
+            st.error("SPAM")
+        else:
+            st.success("HAM")
+   
 
-# Display chat messages from history on app rerun
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.markdown(message["content"])
-
-# Accept user input
-if prompt := st.chat_input("What is up?"):
-    # Display user message in chat message container
-    with st.chat_message("user"):
-        st.markdown(prompt)
-    # Add user message to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-
-# Display assistant response in chat message container
-with st.chat_message("assistant"):
-    response = st.write_stream(response_generator())
-# Add assistant response to chat history
-st.session_state.messages.append({"role": "assistant", "content": response})
-
+if __name__ == '__main__':
+	main()
