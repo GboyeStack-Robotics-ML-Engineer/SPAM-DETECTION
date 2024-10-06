@@ -1,11 +1,23 @@
-from torch.utils.data import Dataset,DataLoader
-import lightning as L
-import pandas as pd
-import torch
-import DataGenerator
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import prepare_data_module
-from prepare_data_module import DataModule
+
+try:
+    from torch.utils.data import Dataset,DataLoader
+    import lightning as L
+    import pandas as pd
+    import torch
+    import DataGenerator
+    from transformers import AutoTokenizer, AutoModelForSequenceClassification
+    import prepare_data_module
+    from prepare_data_module import DataModule
+except:
+    import os
+    os.system('pip install requirements.txt')
+
+else:
+    print('INFO : Module Imports succesful......')
+    
+
+    
+
 
 class TRAINNER(L.LightningModule):
 
@@ -17,17 +29,17 @@ class TRAINNER(L.LightningModule):
     
     
     def forward(self, input_ids,attention_mask, labels=None):
-        #device='cuda' if torch.cuda.is_available() else 'cpu'
-                
+        device='cuda' if torch.cuda.is_available() else 'cpu'
+        
         B,_,S=input_ids.shape
         
-        input_ids=input_ids.view(B,S)
+        input_ids=input_ids.view(B,S).to(device)
         
-        attention_mask=attention_mask.view(B,S)
+        attention_mask=attention_mask.view(B,S).to(device)
 
-        BT,_,ST=labels.shape
-        
-        labels=labels.view(BT,ST).type(torch.LongTensor)
+        BT,_,ST=labels.unsqueeze(1).shape
+
+        labels=labels.view(BT,ST).type(torch.LongTensor).to(device)
         
         self.outputs=self.model(
                                 input_ids=input_ids,
@@ -45,7 +57,7 @@ class TRAINNER(L.LightningModule):
         
         attention_mask=batch['attention_mask']
         
-        labels=batch['labels']
+        labels=batch['label']
         
         self.model.train()
         
@@ -60,7 +72,7 @@ class TRAINNER(L.LightningModule):
         
         attention_mask=batch['attention_mask']
         
-        labels=batch['labels']
+        labels=batch['label']
         
         self.model.eval()
         
@@ -74,7 +86,7 @@ class TRAINNER(L.LightningModule):
         
         attention_mask=batch['attention_mask']
         
-        labels=batch['labels']
+        labels=batch['label']
         
         test_loss=self.forward(input_ids=input_ids,attention_mask=attention_mask,labels=labels)
         
@@ -106,7 +118,9 @@ data_module=DataModule(train=train_data,
             test=test_data,
             valid=valid,
             tokenizer=tokenizer,
-            batch_size=2)
+            batch_size=2,
+            max_length=100,
+            padding_style='max_length')
 
 data_module.setup()
 
