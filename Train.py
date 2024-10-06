@@ -97,7 +97,7 @@ MODEL_NAME='t5-base'
 model=T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
 tokenizer=T5Tokenizer.from_pretrained(MODEL_NAME)
 
-data=pd.read_csv(r"Data\ManaGPT-1020_4080_prompts_and_generated_texts.csv")
+data=pd.read_csv(r"Data\Spam_Data.csv")
 train_data=data.copy().sample(frac=0.8)
 test_data=data.copy().sample(frac=0.2)
 valid=data.copy().sample(frac=0.4)
