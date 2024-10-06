@@ -8,6 +8,7 @@ try:
     from transformers import AutoTokenizer, AutoModelForSequenceClassification
     import prepare_data_module
     from prepare_data_module import DataModule
+    import sentencepiece
 except:
     import os
     os.system('pip install requirements.txt')
