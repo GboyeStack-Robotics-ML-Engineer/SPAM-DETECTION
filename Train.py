@@ -135,6 +135,7 @@ trainer=L.Trainer(
 
 classifier=TRAINNER(model=model)
 trainer.fit(classifier,datamodule=data_module)
+classifier.save()
 
 
     
