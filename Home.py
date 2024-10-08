@@ -2,6 +2,10 @@ import streamlit as st
 import time
 
 def app():
+<<<<<<< HEAD
+=======
+    
+>>>>>>> e0cb30a7fc1e267ed85c4374e9af6e4ed314e06e
     # Displaying the logo and subtext with a nice color
     st.markdown(
         """
