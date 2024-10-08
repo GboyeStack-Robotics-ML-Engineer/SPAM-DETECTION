@@ -94,10 +94,6 @@ def app():
                 pass
             
             
-<<<<<<< HEAD
-=======
-        
->>>>>>> e0cb30a7fc1e267ed85c4374e9af6e4ed314e06e
     with tab4:
         
         st.header("VISUALIZE",help='Visualize Training Metrics. Displays the loss ,accuracy when training and Validatiing the model',divider=True)
