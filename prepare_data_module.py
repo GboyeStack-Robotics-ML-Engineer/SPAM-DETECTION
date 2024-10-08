@@ -5,6 +5,7 @@ import lightning as L
 import transformers
 from torch.utils.data import Dataset,DataLoader
 
+
 class DataModule(L.LightningDataModule):
     
     def __init__(self,train,test,valid,batch_size,tokenizer,max_length=None,padding_style=None):

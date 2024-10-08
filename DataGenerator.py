@@ -14,7 +14,6 @@ class Generator(Dataset):
 
         self.padding_style=padding_style
 
-
     def __len__(self):
         
         return self.dataset.shape[0]

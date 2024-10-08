@@ -48,6 +48,7 @@ selected_app = st.sidebar.selectbox(
     ["Home", "TRAIN", "INFERENCE","👩‍💻 Developer"],
 )
 
+
 # Define a function to render the selected app
 def render_app(selected_app):
     if selected_app == "Home":
