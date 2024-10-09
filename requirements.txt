@@ -2,7 +2,7 @@ lightning==2.2.2
 numpy
 pandas==2.2.3
 plotly==5.24.1
-protobuf==5.28.2
+protobuf
 python-dotenv==1.0.1
 scikit_learn==1.4.2
 streamlit==1.34.0
