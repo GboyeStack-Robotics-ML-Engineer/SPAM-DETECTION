@@ -41,7 +41,7 @@ def response_generator(session,prompt):
 def app():
     # Initialize chat history
     if "messages" not in st.session_state:
-        st.session_state.messages = [{"role": "model", 'content': 'Hey.... I am Jarvis. How can I be of assitance to you?'}]
+        st.session_state.messages = [{"role": "model", 'content': 'Hey..... I am Jarvis. How can I be of assitance to you?'}]
         
         
 
@@ -68,3 +68,6 @@ def app():
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "model", 'content': response})
 
+if __name__ == "__main__":
+    app()
+        
