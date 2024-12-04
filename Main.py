@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set page title and configuration
-st.set_page_config(page_title="SpamDetector",layout='wide',initial_sidebar_state='auto')
+#st.set_page_config(page_title="SpamDetector",layout='wide',initial_sidebar_state='auto')
 
 #Custom CSS styling for the options menu
 custom_css = """
