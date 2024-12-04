@@ -9,4 +9,5 @@ streamlit==1.40.1
 streamlit_option_menu==0.3.12
 torch==2.2.2
 transformers==4.39.3
+google-generativeai
 
