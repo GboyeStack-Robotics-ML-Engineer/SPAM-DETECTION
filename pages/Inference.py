@@ -33,9 +33,14 @@ model = genai.GenerativeModel(
 def response_generator(session,prompt):
     response = session.send_message(prompt)
     response=response.text
-    for word in response.split():
-        yield word + " "
-        time.sleep(0.05)
+    # if mode!='code':
+    #     for word in response.split():
+    #         yield word + " "
+    #         time.sleep(0.05)
+    
+    # st.write(response)
+    return response
+    
         
 
 def app():
@@ -64,9 +69,14 @@ def app():
         
         chat_session = model.start_chat(history=history)
         with st.chat_message("model"):
-            response = st.write_stream(response_generator(session=chat_session,prompt=prompt))
+            response = response_generator(session=chat_session,prompt=prompt)
+            with st.expander('Response',expanded=True, icon='⚙️'):
+                st.write(response)
+                
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "model", 'content': response})
+        
+        
 
 if __name__ == "__main__":
     app()
