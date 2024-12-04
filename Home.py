@@ -1,6 +1,6 @@
 import streamlit as st
 import time
-#st.set_page_config(page_title="SpamDetector",layout='wide',initial_sidebar_state='auto')
+st.set_page_config(page_title="SpamDetector",layout='wide',initial_sidebar_state='auto')
 def app():
     st.markdown(
         """
