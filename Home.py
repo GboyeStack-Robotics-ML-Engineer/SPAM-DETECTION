@@ -70,7 +70,7 @@ def app():
             user_name=st.text_input('Username: ')
             email=st.text_input('Email: ')
             if st.button('login'):
-                st.switch_page('pages\Train.py')
+                st.switch_page('pages/Train.py')
         sign_up_form()
         
 
