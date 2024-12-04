@@ -6,8 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 import os
 
-import Inference
-from Inference import generate
+import pages.Inference as Inference
+from pages.Inference import generate
 
 
 import DataGenerator

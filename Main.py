@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Set page title and configuration
-#st.set_page_config(page_title="starfixGeoImager")
+st.set_page_config(page_title="SpamDetector",layout='wide',initial_sidebar_state='auto')
 
 #Custom CSS styling for the options menu
 custom_css = """
@@ -40,13 +40,13 @@ st.markdown(custom_css, unsafe_allow_html=True)
 
 # Importing modules after setting page configuration to ensure it's called first
 from streamlit_option_menu import option_menu
-import Home,Inference,Train,Developer
+import Home,pages.Inference as Inference,pages.Train as Train,pages.Developer as Developer
 
 #Create the selection menu in the sidebar
-selected_app = st.sidebar.selectbox(
-    "Selections",
-    ["Home", "TRAIN", "INFERENCE","👩‍💻 Developer"],
-)
+# selected_app = st.sidebar.selectbox(
+#     "Selections",
+#     ["Home", "TRAIN", "INFERENCE","👩‍💻 Developer"],
+# )
 
 # Define a function to render the selected app
 def render_app(selected_app):
@@ -60,4 +60,4 @@ def render_app(selected_app):
         Developer.app()
 
 # Render the selected app in the main body
-render_app(selected_app)
+# render_app(selected_app)
