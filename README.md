@@ -65,6 +65,9 @@ The Spam Detection System is a machine learning-based application designed to id
 - **Visualization Tools:** TensorBoard, Streamlit  
 
 ---
+## *Project Demo**
+![Screenshot (121)](https://github.com/user-attachments/assets/6e15b713-a787-4505-bf25-2cfe48f51624)(https://mini-spam-detector-analyser.streamlit.app/Train)
+
 
 ## **Future Enhancements**  
 - Integrate more advanced NLP models such as transformers for enhanced performance.  
@@ -88,4 +91,3 @@ Special thanks to all open-source contributors whose libraries and frameworks ma
 
 ---
 
-This README provides a comprehensive overview of the project, guiding users on setup, usage, and potential contributions. You can customize it further as needed!
