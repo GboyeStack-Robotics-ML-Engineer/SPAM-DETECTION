@@ -66,7 +66,8 @@ The Spam Detection System is a machine learning-based application designed to id
 
 ---
 ## *Project Demo**
-![Screenshot (121)](https://github.com/user-attachments/assets/6e15b713-a787-4505-bf25-2cfe48f51624)(https://mini-spam-detector-analyser.streamlit.app/Train)
+![Screenshot (121)](https://github.com/user-attachments/assets/6e15b713-a787-4505-bf25-2cfe48f51624)
+Link : https://mini-spam-detector-analyser.streamlit.app
 
 
 ## **Future Enhancements**  
